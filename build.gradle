@@ -1,0 +1,38 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+}
+
+plugins {
+    id 'java'
+    id 'org.jetbrains.kotlin.jvm' version '1.4.21'
+    id 'org.jetbrains.kotlin.plugin.serialization' version '1.4.21'
+}
+
+group 'com.example'
+version '0.0.1'
+
+
+sourceSets {
+    main.kotlin.srcDirs = main.java.srcDirs = ['src']
+    test.kotlin.srcDirs = test.java.srcDirs = ['test']
+    main.resources.srcDirs = ['resources']
+    test.resources.srcDirs = ['testresources']
+}
+
+repositories {
+    mavenLocal()
+    jcenter()
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    implementation "io.ktor:ktor-server-netty:$ktor_version"
+    implementation "ch.qos.logback:logback-classic:$logback_version"
+    testImplementation "io.ktor:ktor-server-tests:$ktor_version"
+
+    implementation 'com.vonage:client:6.1.0'
+    implementation "io.ktor:ktor-serialization:$ktor_version"
+    implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.0.1'
+}
